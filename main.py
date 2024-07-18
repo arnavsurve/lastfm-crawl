@@ -1,9 +1,11 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 # from flask_limiter import Limiter
 # from flask_limiter.util import get_remote_address
 from lastfm import get_recent_tracks, get_top_tracks
 
 app = Flask(__name__)
+CORS(app)
 
 # # initialize rate limiter
 # limiter = Limiter(
