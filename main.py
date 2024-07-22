@@ -21,13 +21,11 @@ def home():
 @app.route("/recent-tracks", methods=["GET"])
 def recent_tracks():
     username = request.args.get("username", type=str)
-    number = request.args.get("number", default=20, type=int)
+    number = request.args.get("number", default=10, type=int)
 
     try:
         tracks = get_recent_tracks(username, number)
-        # convert tracks to JSON compatible format
-        tracks_list = [{'payback_date': track.playback_date, 'track': str(track.track)} for track in tracks]
-        return jsonify(tracks_list)
+        return jsonify(tracks)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
@@ -38,11 +36,7 @@ def top_tracks():
 
     try:
         tracks = get_top_tracks(username, number)
-        if tracks is None:
-            tracks = []
-        # convert tracks to JSON compatible format
-        tracks_list = [{'title': track.item.title, 'artist': track.item.artist.name, 'play-count':track.weight} for track in tracks]
-        return jsonify(tracks_list)
+        return jsonify(tracks)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
