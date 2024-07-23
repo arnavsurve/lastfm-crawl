@@ -15,11 +15,9 @@ docker run -p 5000:5000 lastfm-crawl
 
 ### Environment Variables
 
-The following environment variables are required:
+The following environment variables are required and should be set in `config.json`:
 
 ```json
-# config.json
-
 {
     "lastfm_api_key": "LASTFM_API_KEY",
     "lastfm_api_secret": "LASTFM_API_SECRET",
