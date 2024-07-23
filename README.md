@@ -33,6 +33,6 @@ The last.fm username is hardcoded in the `app.py` file. Please change it to your
 
 The API has the following endpoints:
 
-- `/` - Returns a confirmation message.
+- `/` - Returns a confirmation message indicating the server is running.
 - `/recent-tracks` - Returns the most recent tracks listened to by the user. Takes a parameter `username` which is the username of the target LastFM user to query. An optional parameter `number` can be passed to define the number of tracks returned, by default returns the most recent 10 tracks.
 - `/top-tracks` - Returns the top tracks listened to by the user. Takes a parameter `username` which is the username of the target LastFM user to query. An optional parameter `number` can be passed to define the number of tracks returned, by default returns the top 10 tracks.
